@@ -1,0 +1,88 @@
+{
+  "lib": {
+    "loading": "Loading",
+    "error": "Something went wrong",
+    "true": "Yes",
+    "false": "No",
+    "confirm": "Are you sure?", 
+    "page": {
+      "list": "${name}",
+      "detail": "${name}",
+      "create": "${name} - Create",
+      "edit": "${name} - Update",
+      "not_found": "Not Found",
+      "no_data": "No record found",
+      "warning": "Warning"
+    },
+    "action": {
+      "select": "Select",
+      "add": "Add",
+      "cancel": "Cancel",
+      "clone": "Clone",
+      "create": "Create",
+      "delete": "Delete",
+      "edit": "Edit",
+      "export": "Export",
+      "list": "List",
+      "refresh": "Refresh",
+      "remove": "Remove",
+      "save": "Save",
+      "search": "Search",
+      "show": "Show",
+      "confirm": "Confirm",
+      "prev": "Prev",
+      "next": "Next",
+      "update": "Update"
+    },
+    "validation": {
+      "required": "Required",
+      "minlength": "Must be ${requiredLength} characters at least",
+      "maxlength": "Must be ${requiredLength} characters or less. Current is ${actualLength}",
+      "min": "Must be at least ${min}",
+      "max": "Must be ${max} or less",
+      "number": "Must be a number",
+      "email": "Must be a valid email",
+      "pattern": "Must match a specific format (regexp): ${requiredPattern}"
+    },
+    "api": {
+      "code-2": "Permission denied!",
+      "code-10": "Empty model!",
+      "code-11": "Invalid model!",
+      "code-12": "Not found!",
+      "code10": "Deleted!",
+      "code11": "Saved!",
+      "code12": "Created!",
+      "code100": "Go to login",
+      "code101": "Refresh token",
+      "code102": "Email in use",
+      "code103": "Invalid credentials"
+    }
+  },
+  "enums": {
+    "YesNo": {
+      "none": "",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "TrueFalse": {
+      "none": "",
+      "true": "True",
+      "false": "False"
+    },
+    "Language": {
+      "tr": "Turkish",
+      "en": "English"
+    },
+    "Status": {
+      "Active": "Active",
+      "Passive": "Passive",
+      "Deleted": "Deleted"
+    },
+    "DeviceType": {
+      "Web": "Web",
+      "Android": "Android",
+      "IOS": "IOS",
+      "WindowsMobile": "Windows Mobile"
+    }
+  }
+}

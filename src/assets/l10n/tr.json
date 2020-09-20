@@ -1,0 +1,86 @@
+{
+  "lib": {
+    "loading": "Yükleniyor",
+    "error": "Hata oluştu",
+    "true": "Evet",
+    "false": "Hayır",
+    "page": {
+      "list": "${name}",
+      "detail": "${name}",
+      "create": "${name} - Oluştur",
+      "edit": "${name} - Güncelle",
+      "not_found": "Bulunamadı",
+      "no_data": "Kayıt bulunamadı"
+    },
+    "action": {
+      "select": "Seç",
+      "add": "Ekle",
+      "cancel": "İptal",
+      "clone": "Çoğalt",
+      "create": "Oluştur",
+      "delete": "Sil",
+      "edit": "Güncelle",
+      "export": "Dışa Aktar",
+      "list": "Listele",
+      "refresh": "Yenile",
+      "remove": "Çıkar",
+      "save": "Kaydet",
+      "search": "Ara",
+      "show": "Göster",
+      "confirm": "Onay",
+      "prev": "Prev",
+      "next": "Next",
+      "update": "Update"
+    },
+    "validation": {
+      "required": "Zorunlu",
+      "minlength": "En az ${requiredLength} karakter olmalı",
+      "maxlength": "En fazla ${requiredLength} karakter olmalı. Şu anki ${actualLength}",
+      "min": "En az ${min} olmalı",
+      "max": "En fazla ${max} olmalı",
+      "number": "Sayı olmalı",
+      "email": "Geçerli bir eposta olmalı",
+      "pattern": "Şu formata uygun olmalı (regexp): ${requiredPattern}"
+    },
+    "api": {
+      "code-2": "İzin redderildi!",
+      "code-10": "Boş model!",
+      "code-11": "Geçersiz model!",
+      "code-12": "Bulunamadı!",
+      "code10": "Silindi!",
+      "code11": "Kaydedildi!",
+      "code12": "Oluşturuldu!",
+      "code100": "Login olmalısınız",
+      "code101": "Token yenile",
+      "code102": "Bu eposta kullanımda",
+      "code103": "Hatalı kimlik bilgileri"
+    }
+  },
+  "enums": {
+    "YesNo": {
+      "none": "",
+      "yes": "Evet",
+      "no": "Hayır"
+    },
+    "TrueFalse": {
+      "none": "",
+      "true": "Doğru",
+      "false": "Yanlış"
+    },
+    "Language": {
+      "tr": "Türkçe",
+      "en": "İngilizce"
+    },
+    "Status": {
+      "Active": "Aktif",
+      "Passive": "Pasif",
+      "Deleted": "Silinmiş"
+    },
+    "DeviceType": {
+      "Web": "Web",
+      "Android": "Android",
+      "IOS": "IOS",
+      "WindowsMobile": "Windows Mobile"
+    }
+  }
+}

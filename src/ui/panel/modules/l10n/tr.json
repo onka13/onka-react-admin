@@ -1,0 +1,86 @@
+﻿{
+  "menu": {
+    "AdminApi": "Yönetim"
+  },
+  "role": {
+    "admin": "Owner",
+    "list": "List",
+    "get": "Detail",
+    "new": "Create",
+    "edit": "Update",
+    "delete": "Delete",
+    "save": "Save",
+    "assignRole": "Assign Role"
+  },
+  "modules": {
+    "Admin": "Admin",
+    "AdminApi": "Admin",
+    "TestApi": "Test"
+  },
+  "enums": {
+    "AdminTheme": {
+      "Light": "Açık",
+      "Dark": "Koyu"
+    }
+  },
+  "resources": {
+    "/AdminApi/AdminUserSearch": {
+      "name": "AdminUser",
+      "fields": {
+        "id": "Id",
+        "name": "Name",
+        "email": "Email",
+        "pass": "Pass",
+        "language": "Language",
+        "allowIpAddress": "Allow Ip Address",
+        "status": "Status",
+        "no": "No",
+        "theme": "Theme",
+        "isSuper": "Is Super"
+      }
+    },
+    "/AdminApi/RoleMap": {
+      "name": "Role Map",
+      "fields": {}
+    },
+    "/AdminApi/AdminSearch": {
+      "name": "Admin",
+      "fields": {
+        "id": "Id",
+        "name": "Name",
+        "email": "Email",
+        "pass": "Pass",
+        "language": "Language",
+        "status": "Status",
+        "theme": "Theme",
+        "isSuper": "Is Super",
+        "addressId": "Address Id",
+        "contactId": "Contact Id"
+      }
+    },
+    "/AdminApi/AdminRoleSearch": {
+      "name": "Admin Role",
+      "fields": {
+        "id": "Id",
+        "name": "Name"
+      }
+    },
+    "/AdminApi/AddressSearch": {
+      "name": "Address",
+      "fields": {
+        "id": "Id",
+        "countryId": "Country Id",
+        "cityId": "City Id",
+        "stateId": "State Id",
+        "street": "Street",
+        "road": "Road",
+        "door": "Door",
+        "line1": "Line1",
+        "line2": "Line2",
+        "zipCode": "Zip Code",
+        "lat": "Lat",
+        "lng": "Lng"
+      }
+    }
+  }
+}
