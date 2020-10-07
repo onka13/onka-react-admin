@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import { UIManager, Snackbar } from "onka-react-admin-core";
 import React from "react";
 
@@ -72,19 +73,19 @@ function Dashboard() {
       </div>
       Dashboard
       <br />
-      <button onClick={openDialog} className="btn">
+      <Button onClick={openDialog}>
         open dialog
-      </button>
+      </Button>
       <br />
-      <button onClick={openDrawer} className="btn">
+      <Button onClick={openDrawer}>
         open drawer
-      </button>
+      </Button>
       <br />
-      <button onClick={displayLoading} className="btn">
+      <Button onClick={displayLoading}>
         display loading
-      </button>
+      </Button>
       <br />
-      <button
+      <Button
         onClick={(e) =>
           addSnackbar({
             text: "info message",
@@ -92,11 +93,11 @@ function Dashboard() {
             duration: 0,
           })
         }
-        className="btn"
+       
       >
         info msg
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={(e) =>
           addSnackbar({
             text: "warning message",
@@ -104,36 +105,36 @@ function Dashboard() {
             duration: 5,
           })
         }
-        className="btn"
+       
       >
         warning msg - close after 5sec
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={(e) =>
           addSnackbar({
             text: "error message",
             type: "danger",
           })
         }
-        className="btn"
+       
       >
         error msg
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={(e) =>
           addSnackbar({
             text: "success message",
             type: "success",
           })
         }
-        className="btn"
+       
       >
         success msg
-      </button>
+      </Button>
       <br />
-      <button onClick={(e) => confirm()} className="btn">
+      <Button onClick={(e) => confirm()}>
         confirm
-      </button>
+      </Button>
     </div>
   );
 }

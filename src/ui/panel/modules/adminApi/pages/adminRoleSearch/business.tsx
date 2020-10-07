@@ -4,20 +4,10 @@ import { pageConfig } from './config';
 import { GridBulkActionProp, GridRowExtraActionProp, SearchPage, UpsertPage, DetailPage } from 'onka-react-admin-core';
 
 export const SearchRowActions = (props: GridRowExtraActionProp) => {
-  return (
-    <>{/* <li className="nk-tb-action-hidden">
-        <button className="btn btn-trigger btn-icon" onClick={}>
-          roles
-        </button>
-      </li> */}</>
-  );
+  return <></>;
 };
 
-export const SearchBulkActions = (props: GridBulkActionProp) => (
-  <>{/* <button className="btn btn-danger" onClick={}>
-      Delete Selected Rows ({props.selections.length})
-    </button> */}</>
-);
+export const SearchBulkActions = (props: GridBulkActionProp) => <></>;
 
 export const initialValues = {};
 

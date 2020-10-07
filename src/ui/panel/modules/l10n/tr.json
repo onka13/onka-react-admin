@@ -64,23 +64,6 @@
         "id": "Id",
         "name": "Name"
       }
-    },
-    "/AdminApi/AddressSearch": {
-      "name": "Address",
-      "fields": {
-        "id": "Id",
-        "countryId": "Country Id",
-        "cityId": "City Id",
-        "stateId": "State Id",
-        "street": "Street",
-        "road": "Road",
-        "door": "Door",
-        "line1": "Line1",
-        "line2": "Line2",
-        "zipCode": "Zip Code",
-        "lat": "Lat",
-        "lng": "Lng"
-      }
     }
   }
 }

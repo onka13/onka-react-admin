@@ -1,8 +1,8 @@
 import  { allInputs } from "onka-react-admin-core";
 
-var components = { ...allInputs };
+var CustomComponents = { ...allInputs };
 
 // override components
-//components.OnkaInputComponent = SomeComponent;
+//CustomComponents.InputComponent = SomeComponent;
 
-export default components;
+export default CustomComponents;

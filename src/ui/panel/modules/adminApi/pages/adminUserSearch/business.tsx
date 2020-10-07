@@ -16,6 +16,7 @@ import {
   SearchPage,
 } from 'onka-react-admin-core';
 import { useParams } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 interface IUserRolesMapProps {
   isSuper: boolean;
@@ -49,8 +50,9 @@ function UserRolesMap(props: IUserRolesMapProps) {
         editComponent: CustomComponents.MultiReferenceComponent,
         createComponent: CustomComponents.MultiReferenceComponent,
         reference: {
-          reference: '/AdminApi/AdminRoleSearch',
+          route: '/AdminApi/AdminRoleSearch',
           filterField: 'name',
+          dataField: 'role',
           pageSize: 10,
           sortDirection: 'ASC',
           sortField: 'id',
@@ -87,11 +89,9 @@ function SearchRowActions(props: GridRowExtraActionProp) {
   }
   return (
     <>
-      <li className="nk-tb-action-hidden">
-        <button className="btn btn-trigger btn-icon" onClick={openDialog}>
-          Roles
-        </button>
-      </li>
+      <Button size="small" variant="text" color="secondary" onClick={openDialog}>
+        Roles
+      </Button>
     </>
   );
 }
@@ -132,7 +132,7 @@ function Detail(params: any) {
 function Upsert(params: any) {
   const { id } = useParams<{ id: any }>();
   const isEdit = id && id > 0;
-  let fields = getFields(isEdit ? 'edit' : 'create').filter((x) => ['addressId', 'contactId'].indexOf(x.name) == -1);
+  let fields = getFields(isEdit ? 'edit' : 'create');
   var email = fields.find((x) => x.name == 'email');
   if (email) {
     email.editComponent = function (props: InputComponentProp) {
@@ -150,7 +150,7 @@ function Upsert(params: any) {
       {
         label: 'Extra',
         fields: fields.slice(3),
-      }
+      },
     ],
   });
 }

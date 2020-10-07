@@ -1,36 +1,22 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export function PublicFooter() {
   return (
-    <div className="nk-footer nk-auth-footer-full">
-              <div className="container wide-lg">
-                <div className="row g-3">
-                  <div className="col-lg-6 order-lg-last">
-                    <ul className="nav nav-sm justify-content-center justify-content-lg-end">
-                      <li className="nav-item">
-                        <a className="nav-link" href="#">
-                          Terms Condition
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="#">
-                          Privacy Policy
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="#">
-                          Help
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="col-lg-6">
-                    <div className="nk-block-content text-center text-lg-left">
-                      <p className="text-soft">&copy; 2020 onka-react-admin. All Rights Reserved.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div className="ml20 mr20" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+      <div>
+        <Button size="small" component={Link} to="#">
+          Terms Condition
+        </Button>
+        <Button size="small" component={Link} to="#">
+          Privacy Policy
+        </Button>
+        <Button size="small" component={Link} to="#">
+          Help
+        </Button>
+      </div>
+      <div>&copy; 2020 onka-react-admin. All Rights Reserved.</div>
+    </div>
   );
 }
