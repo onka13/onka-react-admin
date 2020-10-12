@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { ConfigService, Admin, Menu, StaticService, AccountBusinessLogic } from 'onka-react-admin-core';
+import { ConfigService, Admin, Menu, StaticService } from 'onka-react-admin-core';
+import AdminIcon from "@material-ui/icons/Person";
 import About from './ui/public/About';
 import config from './data/config';
 import panelRoutes from './ui/panel/modules';
@@ -14,11 +15,13 @@ export const menus: Menu[] = [
     menuKey: 'AdminApi',
     routes: [],
     hasAccess: false,
+    icon: <AdminIcon />
   }),
 ];
 
 function App() {
   function onload(): Promise<any> {
+    StaticService.TOKEN_NAME = "AdminToken";
     ConfigService.instance().setApiUrl(config.API_URL || '');
     ConfigService.instance().setIsProd(config.IS_PROD);
     ConfigService.instance().setLangList({

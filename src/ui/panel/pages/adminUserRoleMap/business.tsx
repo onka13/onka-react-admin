@@ -2,6 +2,7 @@
 import { pageConfig } from './config';
 import styled from 'styled-components';
 import { ApiBusinessLogic, LibService, LocaleService, Parameters, UIManager } from 'onka-react-admin-core';
+import { Button, Checkbox } from '@material-ui/core';
 
 const StyledDiv = styled.div({
   backgroundColor: '#fff',
@@ -86,10 +87,7 @@ function MyCheckbox(props: MyCheckboxProps) {
     change: change,
   };
   return (
-    <div className="custom-control custom-checkbox">
-      <input type="checkbox" className="custom-control-input" checked={isChecked} onChange={handleChange} id={key} title={props.actionKey} />
-      <label className="custom-control-label" htmlFor={key}></label>
-    </div>
+    <Checkbox checked={isChecked} onChange={handleChange} id={key} title={props.actionKey} />
   );
 }
 
@@ -245,12 +243,12 @@ export function RoleMap() {
   return (
     <StyledDiv>
       <div className="d-flex flex-row" style={{ padding: 30 }}>
-        <button className="btn btn-primary mr10" onClick={refreshRoles}>
+        <Button onClick={refreshRoles} variant="contained" color="secondary" className="mr10">
           Refresh Role Definitions
-        </button>
-        <button className="btn btn-secondary" onClick={saveAll}>
+        </Button>
+        <Button onClick={saveAll} variant="contained" color="primary">
           SAVE
-        </button>
+        </Button>
       </div>
       {comp}
     </StyledDiv>

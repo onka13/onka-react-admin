@@ -1,5 +1,5 @@
 ﻿// Auto generated file
-import { PageConfig, PageField, Validators } from 'onka-react-admin-core';
+import { PageConfig, PageField, PageFilterField, PageGridField, Validators } from 'onka-react-admin-core';
 import CC from '../../../../components/CustomComponents';
 import adminApiEnums from '../../adminApiEnums';
 
@@ -18,21 +18,30 @@ export const pageConfig = new PageConfig({
   primaryKeys: ['id'],
   fields: [
     new PageField({
-    inDetail: true,
+      displayInDetail: true,
       name: 'id',
-      isSortable: true,
       validators: [Validators.required, Validators.max(2147483647), Validators.maxLength(50)],
       editComponent: CC.NumberComponent,
       createComponent: CC.NumberComponent
     }),
     new PageField({
-    inDetail: true,
+      displayInDetail: true,
       name: 'name',
-      isCreatable: true,
-      isEditable: true,
-      inFilter: true,
-      inGrid: true,
+      displayInCreate: true,
+      displayInEdit: true,
       validators: [Validators.required, Validators.maxLength(200)]
+    })
+  ],
+  filterFields: [
+    new PageFilterField({
+      name: 'name',
+      filterName: 'Name'
+    })
+  ],
+  gridFields: [
+    new PageGridField({
+      name: 'name',
+      dataType: 'string'
     })
   ],
 });

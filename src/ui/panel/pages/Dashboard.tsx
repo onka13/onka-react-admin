@@ -27,14 +27,14 @@ function Dashboard() {
   function openDrawer() {
     UIManager.instance().dialog.open(
       {
-        width: "20vw",
+        width: "40vw",
         height: "95vh",
-        title: "Dialog Title 2",
-        url: "/panel/AdminApi/AdminRoleSearch",
+        title: "Users",
+        url: "/panel/AdminApi/AdminUserSearch",
         hideActions: true,
         addSelectField: true,
-        defaultValues: { name: "default name" },
-        hideFilters: true,
+        defaultValues: { name: "admin" },
+        hideFilters: false,
       },
       (res: any) => {
         console.log("dialog res", res);

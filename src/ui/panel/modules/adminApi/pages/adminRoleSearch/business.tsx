@@ -12,20 +12,20 @@ export const SearchBulkActions = (props: GridBulkActionProp) => <></>;
 export const initialValues = {};
 
 function Search(params: any) {
-  let gridFields = pageConfig.fields.filter((x) => x.inGrid);
-  let filterFields = pageConfig.fields.filter((x) => x.inFilter);
+  let gridFields = pageConfig.gridFields;
+  let filterFields = pageConfig.filterFields;
   return SearchPage({ pageConfig: pageConfig, gridFields, filterFields });
 }
 
 function Detail(params: any) {
-  let fields = pageConfig.fields.filter((x) => x.inDetail);
+  let fields = pageConfig.fields.filter((x) => x.displayInDetail);
   return DetailPage({ pageConfig: pageConfig, fields: fields });
 }
 
 function Upsert(params: any) {
   const { id } = useParams<{ id: any }>();
   const isEdit = id && id > 0;
-  let fields = pageConfig.fields.filter((x) => (isEdit ? x.isEditable : x.isCreatable));
+  let fields = pageConfig.fields.filter((x) => (isEdit ? x.displayInEdit : x.displayInCreate));
   return UpsertPage({ pageConfig, fields, initialValues });
 }
 

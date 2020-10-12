@@ -64,6 +64,38 @@
         "id": "Id",
         "name": "Name"
       }
+    },
+    "/AdminApi/AdminRoleDefinitionSearch": {
+      "name": "Admin Role Definition",
+      "fields": {
+        "id": "Id",
+        "roleId": "Role Id",
+        "moduleKey": "Module Key",
+        "pageKey": "Page Key",
+        "actionKey": "Action Key",
+        "action": "Action"
+      }
+    },
+    "/AdminApi/AdminUserRoleMapSearch": {
+      "name": "Admin User Role Map",
+      "fields": {
+        "id": "Id",
+        "userId": "User Id",
+        "roleId": "Role Id"
+      }
+    },
+    "/AccountApi/UserSearch": {
+      "name": "User",
+      "fields": {
+        "id": "Id",
+        "name": "Name",
+        "email": "Email",
+        "passwordHash": "Password Hash",
+        "emailConfirmed": "Email Confirmed",
+        "lockoutEndDateUtc": "Lockout End Date Utc",
+        "accessFailedCount": "Access Failed Count",
+        "status": "Status"
+      }
     }
   }
 }

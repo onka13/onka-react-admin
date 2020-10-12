@@ -25,7 +25,7 @@ interface IUserRolesMapProps {
 
 function UserRolesMap(props: IUserRolesMapProps) {
   function loadData() {
-    return new ApiBusinessLogic().request('POST', pageConfig.route + '/getRoles', { userId: props.userId });
+    return new ApiBusinessLogic().request('GET', pageConfig.route + '/getRoles/' + props.userId, {});
   }
 
   function onSubmit(data: Parameters) {
@@ -33,13 +33,13 @@ function UserRolesMap(props: IUserRolesMapProps) {
     new ApiBusinessLogic().request('POST', pageConfig.route + '/assignRole', { userId: props.userId, roles: data.roles });
   }
 
-  // if (props.isSuper) {
-  //   return (
-  //     <div className="p20">
-  //       <h4> Super Admin</h4>
-  //     </div>
-  //   );
-  // }
+  if (props.isSuper) {
+    return (
+      <div className="p20">
+        <h4> Super Admin</h4>
+      </div>
+    );
+  }
 
   return UpsertPage({
     isEdit: true,
@@ -62,7 +62,7 @@ function UserRolesMap(props: IUserRolesMapProps) {
     initialValues: {},
     loadData,
     onSubmit,
-    columnCount: 1,
+    fieldSize: 1,
   });
 }
 
@@ -107,8 +107,8 @@ export function getFields(pageType: PageType, prefix?: string) {
 }
 
 function Search(params: any) {
-  let gridFields = getFields('list');
-  let filterFields = getFields('filter');
+  let gridFields = pageConfig.gridFields;
+  let filterFields = pageConfig.filterFields;
   return SearchPage({ pageConfig, gridFields, filterFields, rowActions: SearchRowActions });
 }
 

@@ -1,16 +1,16 @@
 ﻿// Auto generated file
 import { PageConfig, PageField, PageFilterField, PageGridField, Validators } from 'onka-react-admin-core';
 import CC from '../../../../components/CustomComponents';
-import adminApiEnums from '../../adminApiEnums';
+import accountApiEnums from '../../accountApiEnums';
 
 export const pageConfig = new PageConfig({
-  route: '/AdminApi/AdminUserSearch',
-  moduleKey: 'AdminApi',
-  pageKey: 'AdminUser',
-  menu: 'AdminApi',
+  route: '/AccountApi/UserSearch',
+  moduleKey: 'AccountApi',
+  pageKey: 'User',
+  menu: 'AccountApi',
   menuOrder: 0,
   hideMenu: false,
-  get: false,
+  get: true,
   edit: true,
   new: true,
   delete: false,
@@ -29,35 +29,49 @@ export const pageConfig = new PageConfig({
       name: 'name',
       displayInCreate: true,
       displayInEdit: true,
-      validators: [Validators.required, Validators.maxLength(200)]
+      validators: [Validators.required, Validators.maxLength(150)]
     }),
     new PageField({
       displayInDetail: true,
       name: 'email',
       displayInCreate: true,
       displayInEdit: true,
-      validators: [Validators.required, Validators.email, Validators.maxLength(200)]
+      validators: [Validators.email, Validators.maxLength(200)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'pass',
+      name: 'passwordHash',
       displayInCreate: true,
       displayInEdit: true,
-      validators: [Validators.required, Validators.maxLength(50)]
+      validators: [Validators.required, Validators.maxLength(200)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'language',
+      name: 'emailConfirmed',
       displayInCreate: true,
       displayInEdit: true,
-      validators: [Validators.maxLength(10)]
+      enumName: 'YesNo',
+      enum: accountApiEnums.YesNo,
+      validators: [Validators.required, Validators.email],
+      editComponent: CC.SelectComponent,
+      createComponent: CC.SelectComponent
     }),
     new PageField({
       displayInDetail: true,
-      name: 'allowIpAddress',
+      name: 'lockoutEndDateUtc',
       displayInCreate: true,
       displayInEdit: true,
-      validators: [Validators.maxLength(50)]
+      editComponent: CC.DateComponent,
+      createComponent: CC.DateComponent
+    }),
+    new PageField({
+      displayInDetail: true,
+      name: 'accessFailedCount',
+      displayInCreate: true,
+      displayInEdit: true,
+      validators: [Validators.required, Validators.max(2147483647), Validators.maxLength(50)],
+      editComponent: CC.NumberComponent,
+      createComponent: CC.NumberComponent
     }),
     new PageField({
       displayInDetail: true,
@@ -65,42 +79,17 @@ export const pageConfig = new PageConfig({
       displayInCreate: true,
       displayInEdit: true,
       enumName: 'Status',
-      enum: adminApiEnums.Status,
+      enum: accountApiEnums.Status,
       validators: [Validators.required, Validators.max(255), Validators.maxLength(50)],
-      editComponent: CC.SelectComponent,
-      createComponent: CC.SelectComponent
-    }),
-    new PageField({
-      displayInDetail: true,
-      name: 'no',
-      displayInCreate: true,
-      displayInEdit: true,
-      validators: [Validators.maxLength(50)]
-    }),
-    new PageField({
-      displayInDetail: true,
-      name: 'theme',
-      displayInCreate: true,
-      displayInEdit: true,
-      enumName: 'AdminUserTheme',
-      enum: adminApiEnums.AdminUserTheme,
-      validators: [Validators.required, Validators.max(255), Validators.maxLength(50)],
-      editComponent: CC.SelectComponent,
-      createComponent: CC.SelectComponent
-    }),
-    new PageField({
-      displayInDetail: true,
-      name: 'isSuper',
-      displayInCreate: true,
-      displayInEdit: true,
-      enumName: 'YesNo',
-      enum: adminApiEnums.YesNo,
-      validators: [Validators.required],
       editComponent: CC.SelectComponent,
       createComponent: CC.SelectComponent
     })
   ],
   filterFields: [
+    new PageFilterField({
+      name: 'id',
+      filterName: 'Id'
+    }),
     new PageFilterField({
       name: 'name',
       filterName: 'Name'
@@ -110,20 +99,23 @@ export const pageConfig = new PageConfig({
       filterName: 'Email'
     }),
     new PageFilterField({
+      name: 'emailConfirmed',
+      filterName: 'EmailConfirmed',
+      enumName: 'YesNo',
+      enum: accountApiEnums.YesNo
+    }),
+    new PageFilterField({
       name: 'status',
       filterName: 'Status',
       enumName: 'Status',
-      enum: adminApiEnums.Status
-    }),
-    new PageFilterField({
-      name: 'id',
-      filterName: 'Id'
+      enum: accountApiEnums.Status
     })
   ],
   gridFields: [
     new PageGridField({
-      name: 'no',
-      dataType: 'string'
+      name: 'id',
+      isSortable: true,
+      dataType: 'number'
     }),
     new PageGridField({
       name: 'name',
@@ -131,19 +123,20 @@ export const pageConfig = new PageConfig({
     }),
     new PageGridField({
       name: 'email',
+      isSortable: true,
+      dataType: 'string'
+    }),
+    new PageGridField({
+      name: 'emailConfirmed',
+      enumName: 'YesNo',
+      enum: accountApiEnums.YesNo,
       dataType: 'string'
     }),
     new PageGridField({
       name: 'status',
       enumName: 'Status',
-      enum: adminApiEnums.Status,
+      enum: accountApiEnums.Status,
       dataType: 'number'
-    }),
-    new PageGridField({
-      name: 'isSuper',
-      enumName: 'YesNo',
-      enum: adminApiEnums.YesNo,
-      dataType: 'string'
     })
   ],
 });
