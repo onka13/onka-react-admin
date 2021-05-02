@@ -14,7 +14,7 @@ export const initialValues = {};
 function Search(params: any) {
   let gridFields = pageConfig.gridFields;
   let filterFields = pageConfig.filterFields;
-  return SearchPage({ pageConfig: pageConfig, gridFields, filterFields });
+  return SearchPage({ pageConfig: pageConfig, gridFields, filterFields, fields: pageConfig.fields });
 }
 
 function Detail(params: any) {
@@ -24,7 +24,7 @@ function Detail(params: any) {
 
 function Upsert(params: any) {
   const { id } = useParams<{ id: any }>();
-  const isEdit = id && id > 0;
+  const isEdit = !!id;
   let fields = pageConfig.fields.filter((x) => (isEdit ? x.displayInEdit : x.displayInCreate));
   return UpsertPage({ pageConfig, fields, initialValues });
 }

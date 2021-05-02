@@ -1,5 +1,5 @@
 ﻿// Auto generated file
-import { PageConfig, PageField, PageFilterField, PageGridField, Validators } from 'onka-react-admin-core';
+import { PageConfig, PageField, PageGridField, Validators } from 'onka-react-admin-core';
 import CC from '../../../../components/CustomComponents';
 import adminApiEnums from '../../adminApiEnums';
 
@@ -14,110 +14,107 @@ export const pageConfig = new PageConfig({
   edit: true,
   new: true,
   delete: false,
-  export: true,
+  export: false,
+  inlineEditing: false,
   primaryKeys: ['id'],
   fields: [
     new PageField({
       displayInDetail: true,
       name: 'id',
       validators: [Validators.required, Validators.max(2147483647), Validators.maxLength(50)],
-      editComponent: CC.NumberComponent,
-      createComponent: CC.NumberComponent
+      createComponent: CC.NumberComponent,
+      editComponent: CC.NumberComponent
     }),
     new PageField({
       displayInDetail: true,
-      name: 'name',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'name',
       validators: [Validators.required, Validators.maxLength(200)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'email',
       displayInCreate: true,
       displayInEdit: true,
-      validators: [Validators.required, Validators.email, Validators.maxLength(200)]
+      name: 'email',
+      validators: [Validators.required, Validators.maxLength(200)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'pass',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'pass',
       validators: [Validators.required, Validators.maxLength(50)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'language',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'language',
       validators: [Validators.maxLength(10)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'allowIpAddress',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'allowIpAddress',
       validators: [Validators.maxLength(50)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'status',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'status',
       enumName: 'Status',
       enum: adminApiEnums.Status,
       validators: [Validators.required, Validators.max(255), Validators.maxLength(50)],
-      editComponent: CC.SelectComponent,
-      createComponent: CC.SelectComponent
+      createComponent: CC.SelectComponent,
+      editComponent: CC.SelectComponent
     }),
     new PageField({
       displayInDetail: true,
-      name: 'no',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'no',
       validators: [Validators.maxLength(50)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'theme',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'theme',
       enumName: 'AdminUserTheme',
       enum: adminApiEnums.AdminUserTheme,
       validators: [Validators.required, Validators.max(255), Validators.maxLength(50)],
-      editComponent: CC.SelectComponent,
-      createComponent: CC.SelectComponent
+      createComponent: CC.SelectComponent,
+      editComponent: CC.SelectComponent
     }),
     new PageField({
       displayInDetail: true,
-      name: 'isSuper',
       displayInCreate: true,
       displayInEdit: true,
-      enumName: 'YesNo',
-      enum: adminApiEnums.YesNo,
+      name: 'isSuper',
       validators: [Validators.required],
-      editComponent: CC.SelectComponent,
-      createComponent: CC.SelectComponent
+      createComponent: CC.CheckboxComponent,
+      editComponent: CC.CheckboxComponent
     })
   ],
   filterFields: [
-    new PageFilterField({
-      name: 'name',
-      filterName: 'Name'
+    new PageField({
+      name: 'name'
     }),
-    new PageFilterField({
-      name: 'email',
-      filterName: 'Email'
+    new PageField({
+      name: 'email'
     }),
-    new PageFilterField({
+    new PageField({
       name: 'status',
-      filterName: 'Status',
       enumName: 'Status',
-      enum: adminApiEnums.Status
+      enum: adminApiEnums.Status,
+      filterComponent: CC.SelectComponent
     }),
-    new PageFilterField({
+    new PageField({
       name: 'id',
-      filterName: 'Id'
+      filterComponent: CC.NumberComponent
     })
   ],
   gridFields: [

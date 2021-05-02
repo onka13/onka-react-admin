@@ -1,5 +1,5 @@
 ﻿// Auto generated file
-import { PageConfig, PageField, PageFilterField, PageGridField, Validators } from 'onka-react-admin-core';
+import { PageConfig, PageField, PageGridField, Validators } from 'onka-react-admin-core';
 import CC from '../../../../components/CustomComponents';
 import adminApiEnums from '../../adminApiEnums';
 
@@ -15,73 +15,71 @@ export const pageConfig = new PageConfig({
   new: false,
   delete: false,
   export: false,
+  inlineEditing: false,
   primaryKeys: ['id'],
   fields: [
     new PageField({
       displayInDetail: true,
       name: 'id',
       validators: [Validators.required, Validators.max(2147483647), Validators.maxLength(50)],
-      editComponent: CC.NumberComponent,
-      createComponent: CC.NumberComponent
+      createComponent: CC.NumberComponent,
+      editComponent: CC.NumberComponent
     }),
     new PageField({
       displayInDetail: true,
+      displayInCreate: true,
+      displayInEdit: true,
       name: 'roleId',
-      displayInCreate: true,
-      displayInEdit: true,
       validators: [Validators.required, Validators.max(2147483647), Validators.maxLength(50)],
-      editComponent: CC.NumberComponent,
-      createComponent: CC.NumberComponent
+      createComponent: CC.NumberComponent,
+      editComponent: CC.NumberComponent
     }),
     new PageField({
       displayInDetail: true,
+      displayInCreate: true,
+      displayInEdit: true,
       name: 'moduleKey',
-      displayInCreate: true,
-      displayInEdit: true,
       validators: [Validators.maxLength(50)]
     }),
     new PageField({
       displayInDetail: true,
+      displayInCreate: true,
+      displayInEdit: true,
       name: 'pageKey',
-      displayInCreate: true,
-      displayInEdit: true,
       validators: [Validators.maxLength(50)]
     }),
     new PageField({
       displayInDetail: true,
+      displayInCreate: true,
+      displayInEdit: true,
       name: 'actionKey',
-      displayInCreate: true,
-      displayInEdit: true,
       validators: [Validators.maxLength(50)]
     }),
     new PageField({
       displayInDetail: true,
-      name: 'action',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'action',
       enumName: 'AdminRoleAction',
       enum: adminApiEnums.AdminRoleAction,
       validators: [Validators.required, Validators.max(255), Validators.maxLength(50)],
-      editComponent: CC.SelectComponent,
-      createComponent: CC.SelectComponent
+      createComponent: CC.SelectComponent,
+      editComponent: CC.SelectComponent
     })
   ],
   filterFields: [
-    new PageFilterField({
+    new PageField({
       name: 'roleId',
-      filterName: 'RoleId'
+      filterComponent: CC.NumberComponent
     }),
-    new PageFilterField({
-      name: 'moduleKey',
-      filterName: 'ModuleKey'
+    new PageField({
+      name: 'moduleKey'
     }),
-    new PageFilterField({
-      name: 'pageKey',
-      filterName: 'PageKey'
+    new PageField({
+      name: 'pageKey'
     }),
-    new PageFilterField({
-      name: 'actionKey',
-      filterName: 'ActionKey'
+    new PageField({
+      name: 'actionKey'
     })
   ],
   gridFields: [

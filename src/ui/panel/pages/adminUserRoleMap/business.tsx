@@ -138,12 +138,6 @@ export function RoleMap() {
     new ApiBusinessLogic()
       .request('POST', pageConfig.route + '/save', {
         roles: selectedList,
-      })
-      .then((response) => {
-        UIManager.instance().displayMessage({
-          text: 'Saved',
-          type: 'success',
-        });
       });
   }
 

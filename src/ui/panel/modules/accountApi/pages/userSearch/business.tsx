@@ -27,7 +27,7 @@ export function getFields(pageType: PageType, prefix?: string) {
 function Search(params: any) {
   let gridFields = pageConfig.gridFields;
   let filterFields = pageConfig.filterFields;
-  return SearchPage({ pageConfig, gridFields, filterFields });
+  return SearchPage({ pageConfig, gridFields, filterFields, fields: pageConfig.fields });
 }
 
 function Detail(params: any) {
@@ -37,7 +37,7 @@ function Detail(params: any) {
 
 function Upsert(params: any) {
   const { id } = useParams<{ id: any }>();
-  const isEdit = id && id > 0;
+  const isEdit = !!id;
   let fields = getFields(isEdit ? 'edit' : 'create');
   return UpsertPage({ pageConfig, fields, initialValues });
 }

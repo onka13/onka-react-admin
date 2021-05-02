@@ -17,6 +17,7 @@ import {
 } from 'onka-react-admin-core';
 import { useParams } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import adminApiEnums from '../../adminApiEnums';
 
 interface IUserRolesMapProps {
   isSuper: boolean;
@@ -53,7 +54,6 @@ function UserRolesMap(props: IUserRolesMapProps) {
           route: '/AdminApi/AdminRoleSearch',
           filterField: 'name',
           dataField: 'role',
-          pageSize: 10,
           sortDirection: 'ASC',
           sortField: 'id',
         },
@@ -61,8 +61,7 @@ function UserRolesMap(props: IUserRolesMapProps) {
     ],
     initialValues: {},
     loadData,
-    onSubmit,
-    fieldSize: 1,
+    onSubmit
   });
 }
 
@@ -100,7 +99,11 @@ function SearchBulkActions(props: GridBulkActionProp) {
   return <></>;
 }
 
-export const initialValues = {};
+export const initialValues = {
+  status: adminApiEnums.Status.Active,
+  theme: adminApiEnums.AdminUserTheme.Light,
+  isSuper: false,
+};
 
 export function getFields(pageType: PageType, prefix?: string) {
   return LibService.instance().filterFields(pageConfig.fields, pageType, prefix);
@@ -109,7 +112,7 @@ export function getFields(pageType: PageType, prefix?: string) {
 function Search(params: any) {
   let gridFields = pageConfig.gridFields;
   let filterFields = pageConfig.filterFields;
-  return SearchPage({ pageConfig, gridFields, filterFields, rowActions: SearchRowActions });
+  return SearchPage({ pageConfig, gridFields, filterFields, fields: pageConfig.fields, rowActions: SearchRowActions });
 }
 
 function Detail(params: any) {
@@ -131,7 +134,7 @@ function Detail(params: any) {
 
 function Upsert(params: any) {
   const { id } = useParams<{ id: any }>();
-  const isEdit = id && id > 0;
+  const isEdit = !!id;
   let fields = getFields(isEdit ? 'edit' : 'create');
   var email = fields.find((x) => x.name == 'email');
   if (email) {

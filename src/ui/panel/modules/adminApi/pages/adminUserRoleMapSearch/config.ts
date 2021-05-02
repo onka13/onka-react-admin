@@ -1,5 +1,5 @@
 ﻿// Auto generated file
-import { PageConfig, PageField, PageFilterField, PageGridField, Validators } from 'onka-react-admin-core';
+import { PageConfig, PageField, PageGridField, Validators } from 'onka-react-admin-core';
 import CC from '../../../../components/CustomComponents';
 import adminApiEnums from '../../adminApiEnums';
 
@@ -15,51 +15,53 @@ export const pageConfig = new PageConfig({
   new: true,
   delete: true,
   export: false,
+  inlineEditing: false,
   primaryKeys: ['id'],
   fields: [
     new PageField({
       displayInDetail: true,
       name: 'id',
       validators: [Validators.required, Validators.max(2147483647), Validators.maxLength(50)],
-      editComponent: CC.NumberComponent,
-      createComponent: CC.NumberComponent
+      createComponent: CC.NumberComponent,
+      editComponent: CC.NumberComponent
     }),
     new PageField({
       displayInDetail: true,
+      displayInCreate: true,
+      displayInEdit: true,
       name: 'userId',
-      displayInCreate: true,
-      displayInEdit: true,
       validators: [Validators.required, Validators.max(2147483647), Validators.maxLength(50)],
-      editComponent: CC.NumberComponent,
-      createComponent: CC.NumberComponent
+      createComponent: CC.NumberComponent,
+      editComponent: CC.NumberComponent
     }),
     new PageField({
       displayInDetail: true,
-      name: 'roleId',
       displayInCreate: true,
       displayInEdit: true,
+      name: 'roleId',
       validators: [Validators.required, Validators.max(2147483647), Validators.maxLength(50)],
       reference: {
         route: 'AdminApi/AdminRoleSearch',
         filterField: 'name',
         dataField: 'role',
       },
-      editComponent: CC.ReferenceComponent,
-      createComponent: CC.ReferenceComponent
+      createComponent: CC.ReferenceComponent,
+      editComponent: CC.ReferenceComponent
     })
   ],
   filterFields: [
-    new PageFilterField({
+    new PageField({
       name: 'userId',
-      filterName: 'UserId'
+      filterComponent: CC.NumberComponent
     }),
-    new PageFilterField({
+    new PageField({
       name: 'roleId',
-      filterName: 'RoleId',
+      filterComponent: CC.ReferenceComponent,
       reference: {
         route: 'AdminApi/AdminRoleSearch',
         filterField: 'name',
         dataField: 'role',
+        
       }
     })
   ],
